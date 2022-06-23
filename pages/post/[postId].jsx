@@ -4,6 +4,8 @@ import axios from "axios";
 import Post from "../../components/Post";
 import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
+import searchListAtom from "../../atoms/searchList.atom";
+import { useRecoilState } from "recoil";
 
 function postId() {
   const {
@@ -18,7 +20,6 @@ function postId() {
     setValue,
     formState: { errors },
   } = useForm();
-  console.log(post)
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -38,6 +39,10 @@ function postId() {
   //     console.log(error)
   //   }
   // };
+  const [searchList, setSearchList] = useRecoilState(searchListAtom);
+  useEffect(() => {
+    setSearchList((prev) => false);
+  }, []);
   if (!post) return <div></div>;
   return (
     <div className="mx-auto my-7 max-w-5xl">
@@ -47,7 +52,7 @@ function postId() {
           Comment as <span className="text-red-500">{session?.user?.name}</span>
         </p> */}
 
-        {/* <form
+      {/* <form
           className="flex flex-col space-y-2"
           onSubmit={handleSubmit(onSubmit)}
         >

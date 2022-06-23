@@ -36,7 +36,7 @@ function Postbox({ topic }) {
   return (
     <form
       onSubmit={onSubmit}
-      className="sticky top-16 z-50 bg-white border rounded-md border-gray-300 p-2"
+      className="sticky top-16 z-20 bg-white border rounded-md border-gray-300 p-2"
     >
       <div className="flex items-center space-x-3">
         <Avatar />

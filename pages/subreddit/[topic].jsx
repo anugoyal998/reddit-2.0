@@ -9,8 +9,8 @@ function topic() {
     query: { topic },
   } = useRouter();
   return (
-    <div className={`h-24 bg-red-400 p-8`}>
-      <div className="-mx-8 mt-10 bg-white">
+    <div className={`h-24 bg-red-400 p-2 sm:p-8`}>
+      <div className="mt-10 bg-white rounded-md">
         <div className="mx-auto flex max-w-5xl items-center space-x-4 pb-3">
           <div className="-mt-5">
             <Avatar seed={topic} large />

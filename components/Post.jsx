@@ -29,14 +29,17 @@ function Post({ post }) {
           {/* header */}
           <div className="flex items-center space-x-2">
             <Avatar seed={post.subreddit} />
-            <p className="text-xs text-gray-400">
+            <div>
               <Link href={`/subreddit/${post?.subreddit}`}>
                 <span className="font-bold text-black hover:text-blue-400 hover:underline">
                   r/{post.subreddit}
                 </span>
-              </Link>{' '}
-              . Posted by u/{post.userName} <TimeAgo date={post.createdAt} />
-            </p>
+              </Link>
+              <p className="text-xs text-gray-400">
+                {" "}
+                . Posted by u/{post.userName} <TimeAgo date={post.createdAt} />
+              </p>
+            </div>
           </div>
           {/* Body */}
           <div className="py-4">
@@ -45,39 +48,10 @@ function Post({ post }) {
           </div>
           {/* Image */}
           <img
-            className="w-full"
+            // className="w-[90%]"
             src={post.postImage ? post.postImage : IMG}
             alt=""
           />
-          {/* Footer */}
-          <div className="flex space-x-4 text-gray-400">
-            <div className="flex items-center space-x-1 text-sm font-semibold p-2 hover:bg-gray-100 cursor-pointer rounded-sm">
-              <ChatAltIcon className="h-6 w-6" />
-              <p className="">{post?.comments?.length | 0} Comments</p>
-            </div>
-            <div className="flex items-center space-x-1 text-sm font-semibold p-2 hover:bg-gray-100 cursor-pointer rounded-sm">
-              <GiftIcon className="h-6 w-6" />
-              <p className="hidden sm:inline">
-                {post?.comments?.length | 0} Comments
-              </p>
-            </div>
-            <div className="flex items-center space-x-1 text-sm font-semibold p-2 hover:bg-gray-100 cursor-pointer rounded-sm">
-              <ShareIcon className="h-6 w-6" />
-              <p className="hidden sm:inline">
-                {post?.comments?.length | 0} Comments
-              </p>
-            </div>
-            <div className="flex items-center space-x-1 text-sm font-semibold p-2 hover:bg-gray-100 cursor-pointer rounded-sm">
-              <BookmarkIcon className="h-6 w-6" />
-              <p className="hidden sm:inline">
-                {post?.comments?.length | 0} Comments
-              </p>
-            </div>
-            <div className="flex items-center space-x-1 text-sm font-semibold p-2 hover:bg-gray-100 cursor-pointer rounded-sm">
-              <DotsHorizontalIcon className="h-6 w-6" />
-              <p className="">{post?.comments?.length | 0} Comments</p>
-            </div>
-          </div>
         </div>
       </div>
     </Link>
