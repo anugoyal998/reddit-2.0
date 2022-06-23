@@ -82,7 +82,7 @@ function Header() {
           </div>
         ) : (
           <div
-            className="hidden lg:flex items-center space-x-2 border border-gray-100 p-2 "
+            className="flex items-center space-x-2 border border-gray-100 p-2 "
             onClick={() => signIn()}
           >
             <div className="relative h-5 w-5 flex-shrink-0">
